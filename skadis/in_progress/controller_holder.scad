@@ -1,12 +1,16 @@
 use <Skadis_Hook_redo.scad>
 
-
+		my_negativ_hook();
+/*
 difference() 
 {
 	
 	controller_holder();
-	my_negativ_hook();
+	
+	scale(v = 1.01) 
+		my_negativ_hook();
 }
+*/
 module controller_holder() {
 	translate([-109, -64, -9.0]) 
 	{
@@ -34,9 +38,9 @@ BASE_HEIGHT = 50; // [36:100]
 
 /* [Hook] */
 // Enable Smooth Edges.
-ENABLE_SMOOTH_EDGES = false;
+ENABLE_SMOOTH_EDGES = true;
 // Make the hook a bit prettier.
-ENABLE_HOOK_NICE = false;
+ENABLE_HOOK_NICE = true;
 // Length (horizontal size) of the hook.
 HOOK_SIZE_H = 12.5; // [11:100]
 // Height (vertical size) of the hook.
@@ -48,7 +52,6 @@ HOOK_ROTATION = 0; // [0:90]
 SHIFT_OF_HOOK_2 = 20;
 
 module my_negativ_hook() {
-  scale(v = 1.01) 
 	minkowskiOutsideRound(1, ENABLE_SMOOTH_EDGES) {
 		hook(
 			base_height = BASE_HEIGHT,
