@@ -4,11 +4,11 @@ use <Skadis_Hook_redo.scad>
 difference() 
 {
 	
-controller_holder();
-my_negativ_hook();
+	controller_holder();
+	my_negativ_hook();
 }
 module controller_holder() {
-	translate([-109, -63, -11]) 
+	translate([-109, -64, -9.0]) 
 	{
 		rotate([0, 0, -64 +180]) 
 		{
