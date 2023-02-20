@@ -75,7 +75,12 @@ module hook(
 	translate([-(hook_size_h-base_depth), 0, 0]) {
 		cube(size=[hook_size_h-base_depth, base_depth, base_width]);
 	}
-
+	
+	// Adding new Hooks
+	// Hook, Horizontal 2
+	translate([-(hook_size_h-base_depth), 20, 0]) {
+		cube(size=[hook_size_h-base_depth, base_depth, base_width]);
+	}
 
 	// Hook, Vertical
 	if (hook_size_h > 0) {
