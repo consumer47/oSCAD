@@ -1,5 +1,5 @@
 /* [Hidden] */
-$fn = 5;
+$fn = 10;
 
 CLIP_HEIGHT = 12;
 CLIP_PIN_INNER_DISTANCE = 26;
@@ -14,18 +14,15 @@ BASE_HEIGHT = 50; // [36:100]
 
 /* [Hook] */
 // Enable Smooth Edges.
-ENABLE_SMOOTH_EDGES = false;
+ENABLE_SMOOTH_EDGES = true;
 // Make the hook a bit prettier.
-ENABLE_HOOK_NICE = false;
+ENABLE_HOOK_NICE = true;
 // Length (horizontal size) of the hook.
-HOOK_SIZE_H = 15; // [11:100]
+HOOK_SIZE_H = 10; // [1:100]
 // Height (vertical size) of the hook.
-HOOK_SIZE_V = 5; // [0:50]
+HOOK_SIZE_V = 10; // [0:50]
 // Vertical rotation of the hook.
 HOOK_ROTATION = 0; // [0:90]
-
-// 
-SHIFT_OF_HOOK_2 = 20;
 
 
 minkowskiOutsideRound(1, ENABLE_SMOOTH_EDGES) {
@@ -79,37 +76,9 @@ module hook(
 		cube(size=[hook_size_h-base_depth, base_depth, base_width]);
 	}
 
-
-		// Hook, Vertical
+	// Hook, Vertical
 	if (hook_size_h > 0) {
 		translate([-(hook_size_h-base_depth), 0, 0]) {
-			rotate([0, 0, hook_rotation]) {
-				difference() {
-					cube(size=[base_depth, base_depth+hook_size_v, base_width]);
-					
-					if (hook_nice == true) {
-						translate([0, hook_size_v+base_depth/2, -1]) {
-							rotate([0, 0, 45]) {
-							cube(size=[base_depth, base_depth, base_width+2]);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-
-		
-	// Adding new Hooks
-	// Hook, Horizontal 2
-	translate([-(hook_size_h-base_depth), SHIFT_OF_HOOK_2, 0]) {
-		cube(size=[hook_size_h-base_depth, base_depth, base_width]);
-	}
-
-	// Hook, Vertical 2
-	if (hook_size_h > 0) {
-		translate([-(hook_size_h-base_depth), SHIFT_OF_HOOK_2, 0]) {
 			rotate([0, 0, hook_rotation]) {
 				difference() {
 					cube(size=[base_depth, base_depth+hook_size_v, base_width]);
