@@ -1,12 +1,21 @@
 use <Skadis_Hook_redo.scad>
 
-translate([-109, -63, -11]) 
+
+difference() 
 {
-	rotate([0, 0, -64 +180]) 
+	
+controller_holder();
+my_negativ_hook();
+}
+module controller_holder() {
+	translate([-109, -63, -11]) 
 	{
-		import("include_stls/DualShock4_Mount_w_chargehole.stl");
-	}
-} 
+		rotate([0, 0, -64 +180]) 
+		{
+			import("include_stls/DualShock4_Mount_w_chargehole.stl");
+		}
+	} 
+}
 
 
 /* [Hidden] */
@@ -38,17 +47,20 @@ HOOK_ROTATION = 0; // [0:90]
 // 
 SHIFT_OF_HOOK_2 = 20;
 
-minkowskiOutsideRound(1, ENABLE_SMOOTH_EDGES) {
-	hook(
-		base_height = BASE_HEIGHT,
-		base_width = BASE_WIDTH,
-		base_depth = BASE_DEPTH,
-		clip_height = CLIP_HEIGHT,
-		clip_pin_distance = CLIP_PIN_INNER_DISTANCE,
-		pin_length = PIN_LENGTH,
-		hook_size_h = HOOK_SIZE_H,
-		hook_size_v = HOOK_SIZE_V,
-		hook_nice = ENABLE_HOOK_NICE,
-		hook_rotation = HOOK_ROTATION
-	);
+module my_negativ_hook() {
+  scale(v = 1.01) 
+	minkowskiOutsideRound(1, ENABLE_SMOOTH_EDGES) {
+		hook(
+			base_height = BASE_HEIGHT,
+			base_width = BASE_WIDTH,
+			base_depth = BASE_DEPTH,
+			clip_height = CLIP_HEIGHT,
+			clip_pin_distance = CLIP_PIN_INNER_DISTANCE,
+			pin_length = PIN_LENGTH,
+			hook_size_h = HOOK_SIZE_H,
+			hook_size_v = HOOK_SIZE_V,
+			hook_nice = ENABLE_HOOK_NICE,
+			hook_rotation = HOOK_ROTATION
+		);
+	}
 }
