@@ -1,7 +1,7 @@
 use <Skadis_Hook_redo.scad>
 
-		my_negativ_hook();
-/*
+		//my_negativ_hook();
+
 difference() 
 {
 	
@@ -10,7 +10,7 @@ difference()
 	scale(v = 1.01) 
 		my_negativ_hook();
 }
-*/
+
 module controller_holder() {
 	translate([-109, -64, -9.0]) 
 	{
